@@ -28,6 +28,7 @@ namespace AdminPanel
 
         public Payment()
         {
+            //THIS PROBLEM IS FIXED
             //IT WORKS BUT AFTER YOU CHANGE SENDER ITS NOT UPDATEING THE VALUT AND EXCHANGE CHECK FOR A METHOD TO UPDATE!
             InitializeComponent();
             fillClientcombo();
@@ -84,52 +85,86 @@ namespace AdminPanel
 
         public void fillvalut()
         {
+            Con.Open();
+            SqlCommand cmd = new SqlCommand("select Valut from Client_tbl where Username='" + Sender.Text + "'", Con);
+            SqlDataReader rdr;
+            rdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Valut", typeof(string));
+            dt.Load(rdr);
+            comboBox2.ValueMember = "Valut";
+            comboBox2.DataSource = dt;
+            Con.Close();
+
+
+
+        }
+
+        public void fillval()
+        {
           
+
                 Con.Open();
-                SqlCommand cmd = new SqlCommand("select Valut from Client_tbl where Username='"+Sender.Text+"'", Con);
+                SqlCommand cmd = new SqlCommand("select Exchange from Valut_tbl where Valut='" + currency.Text + "'", Con);
                 SqlDataReader rdr;
                 rdr = cmd.ExecuteReader();
                 DataTable dt = new DataTable();
-                dt.Columns.Add("Valut", typeof(string));
+                dt.Columns.Add("Exchange", typeof(float));
                 dt.Load(rdr);
-                comboBox2.ValueMember = "Valut";
-                comboBox2.DataSource = dt;
+                comboBox3.ValueMember = "Exchange";
+                comboBox3.DataSource = dt;
                 Con.Close();
             
         }
+
+
 
         public void total()
         {
             
             int a;
             int b;
-            int c;
-       
+         //   int c;
+            
+            int x;
+            int z;
             a = Convert.ToInt32(Deposit.Text);
             b = Convert.ToInt32(Amount.Text);
-                if (radioButton1.Checked == true)
-                {
-
+            txtEchange.Text = Convert.ToString(0);
+           txtVal.Text = Convert.ToString(0);
+            // d = Convert.ToInt32(txtEchange.Text);
+            if (radioButton1.Checked == true)
+            {
+              
                 label20.Visible = false;
                 label21.Visible = false;
                 comboBox1.Visible = false;
                 comboBox2.Visible = false;
                 cmbExchange.Visible = false;
                 button3.Visible = false;
-
                 Deposit.Visible = true;
-                    label8.Text = "Deposit";
-                    label8.Visible = true;
-                    c = a + b;
+                label8.Text = "Deposit";
+                label8.Visible = true;
+
+
+                if (buttonClicked1 == true)
+                {
+                    txtVal.Text = comboBox3.SelectedValue.ToString();
+                    float d = float.Parse(comboBox3.SelectedValue.ToString());
+                    float n;
+                    float c;
+                     n = a * d;
+                    c = n + b;
                     Total.Text = Convert.ToString(c);
                     Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
                 }
-                else
+            }
+            else
+            {
+                if (radioButton2.Checked == true)
                 {
-                    if (radioButton2.Checked == true)
-                    {
-                   // Deposit.Visible = false;
-                   // label8.Visible = false;
+                    // Deposit.Visible = false;
+                    // label8.Visible = false;
                     label20.Visible = false;
                     label21.Visible = false;
                     comboBox1.Visible = false;
@@ -138,17 +173,21 @@ namespace AdminPanel
                     button3.Visible = false;
 
                     Deposit.Visible = true;
-                        label8.Text = "Withdraw";
-                        label8.Visible = true;
-                        c = b - a;
-                        Total.Text = Convert.ToString(c);
+                    label8.Text = "Withdraw";
+                    label8.Visible = true;
+                    int c;
+                    c = b - a;
+                    Total.Text = Convert.ToString(c);
                     Action.Text = "In your bank account was removed " + a.ToString() + " your total balance now is " + c.ToString();
                 }
                 else
                 { //RREGULLO KETU QE TE DERGOSH LEKE NE LLOGARI TJETER
 
-                    if(radioButton3.Checked == true)
+                    if (radioButton3.Checked == true)
                     {
+
+
+
                         Deposit.Visible = true;
                         label8.Text = "Send";
                         label8.Visible = true;
@@ -158,15 +197,27 @@ namespace AdminPanel
                         comboBox2.Visible = true;
                         cmbExchange.Visible = true;
                         button3.Visible = true;
-                        c = a + b;
-                        Total.Text = Convert.ToString(c);
-                        Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
+                        if (buttonClicked == true)
+                        {
+                            txtEchange.Text = cmbExchange.SelectedValue.ToString();
+                            int d = Convert.ToInt32(txtEchange.Text);
+                            int n;
+                            int c;
+                            n = a * Convert.ToInt32(d);
+                            c = +n;
+                            Total.Text = Convert.ToString(c);
+                            Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
+                        }
                     }
                 }
-                }
+            }
             
              
         }
+
+        private bool buttonClicked1 = false;
+
+        private bool buttonClicked = false;
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -200,11 +251,11 @@ namespace AdminPanel
             Deposit.Visible = false;
             label8.Text = "Action";
             comboBox1.Text = "Username";
-            comboBox2.Text = "Valut";
+            comboBox2.Text = "";
             txtValut.Text = "";
             Sender.Text = "";
             txtEchange.Text = "";
-            cmbExchange.Text = "Exchange";
+            cmbExchange.Text = "";
             label20.Visible = false;
             label21.Visible = false;
             comboBox1.Visible = false;
@@ -286,7 +337,10 @@ namespace AdminPanel
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+            fillval();
+            buttonClicked1 = true;
             total();
+            
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -333,7 +387,7 @@ namespace AdminPanel
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         public void exrate()
@@ -366,6 +420,7 @@ namespace AdminPanel
         {
             fillvalut();
             exrate();
+            buttonClicked = true;
             /*comboBox1.Text = "Username";
             Sender.Text = "";
             comboBox2.Text = "Valut";
@@ -382,6 +437,14 @@ namespace AdminPanel
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
             total();
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //TRY TO FIX THE PROBLEM WHERE IT TAKES FLOAT VALUE FORM VALUT TO CLIENT!
+            //txtVal.Text = comboBox3.SelectedValue.ToString();
+           // float.TryParse(comboBox3.Text);
+          
         }
     }
 }

@@ -30,7 +30,10 @@ namespace AdminPanel
         {
             InitializeComponent();
             populate();
+            
         }
+
+        double num;
 
         private void Valut_Load(object sender, EventArgs e)
         {
@@ -137,5 +140,10 @@ namespace AdminPanel
                 clean();
             }
         }
+
+        private void vlera_TextChanged(object sender, EventArgs e)
+        {
+            
+         }
     }
 }

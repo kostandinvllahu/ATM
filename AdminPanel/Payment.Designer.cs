@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.Sender = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtVal = new System.Windows.Forms.TextBox();
             this.currency = new System.Windows.Forms.TextBox();
             this.cmbExchange = new System.Windows.Forms.ComboBox();
             this.txtValut = new System.Windows.Forms.TextBox();
@@ -87,6 +87,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.txtEchange = new System.Windows.Forms.TextBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Client)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Deposit)).BeginInit();
@@ -369,43 +370,43 @@
             // 
             // Client
             // 
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            this.Client.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            this.Client.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.Client.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Client.BackgroundColor = System.Drawing.Color.White;
             this.Client.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Client.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.Client.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Client.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Client.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.Client.ColumnHeadersHeight = 20;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Client.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Client.DefaultCellStyle = dataGridViewCellStyle19;
             this.Client.EnableHeadersVisualStyles = false;
             this.Client.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.Client.Location = new System.Drawing.Point(341, 155);
             this.Client.Name = "Client";
             this.Client.ReadOnly = true;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Client.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Client.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.Client.RowHeadersVisible = false;
             this.Client.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Client.Size = new System.Drawing.Size(826, 439);
@@ -583,7 +584,7 @@
             // 
             this.Deposit.Location = new System.Drawing.Point(19, 382);
             this.Deposit.Maximum = new decimal(new int[] {
-            1000,
+            99999,
             0,
             0,
             0});
@@ -645,14 +646,14 @@
             this.Sender.TabIndex = 239;
             this.Sender.Visible = false;
             // 
-            // textBox1
+            // txtVal
             // 
-            this.textBox1.Location = new System.Drawing.Point(136, 336);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(22, 20);
-            this.textBox1.TabIndex = 240;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtVal.Location = new System.Drawing.Point(136, 336);
+            this.txtVal.Name = "txtVal";
+            this.txtVal.ReadOnly = true;
+            this.txtVal.Size = new System.Drawing.Size(22, 20);
+            this.txtVal.TabIndex = 240;
+            this.txtVal.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // currency
             // 
@@ -727,18 +728,29 @@
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(164, 336);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(62, 21);
+            this.comboBox3.TabIndex = 247;
+            this.comboBox3.Text = "Valut";
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 682);
+            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.txtEchange);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.txtValut);
             this.Controls.Add(this.cmbExchange);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtVal);
             this.Controls.Add(this.Sender);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
@@ -845,7 +857,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox Sender;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtVal;
         private System.Windows.Forms.TextBox currency;
         private System.Windows.Forms.ComboBox cmbExchange;
         private System.Windows.Forms.TextBox txtValut;
@@ -853,5 +865,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txtEchange;
         private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }
