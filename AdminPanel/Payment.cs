@@ -124,7 +124,7 @@ namespace AdminPanel
             
             int a;
             int b;
-           int c;
+         //  int c;
             
             int x;
             int z;
@@ -149,14 +149,14 @@ namespace AdminPanel
 
                 if (buttonClicked1 == true)
                 {
-                  //  txtVal.Text = comboBox3.SelectedValue.ToString();
-                  //  float d = float.Parse(comboBox3.SelectedValue.ToString());
-                  //  float n;
-                   // float c;
-                   // n = a * d;
-                   // c = n + b;
-                   // Total.Text = Convert.ToString(c);
-                   // Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
+                    txtVal.Text = comboBox3.SelectedValue.ToString();
+                    float d = float.Parse(comboBox3.SelectedValue.ToString());
+                   float n;
+                    float c;
+                   n = a * d;
+                    c = n + b;
+                    Total.Text = Convert.ToString(c);
+                    Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
                 }
             }
             else
@@ -175,7 +175,7 @@ namespace AdminPanel
                     Deposit.Visible = true;
                     label8.Text = "Withdraw";
                     label8.Visible = true;
-                   
+                    int c;
                     c = b - a;
                     Total.Text = Convert.ToString(c);
                     Action.Text = "In your bank account was removed " + a.ToString() + " your total balance now is " + c.ToString();
@@ -203,7 +203,7 @@ namespace AdminPanel
                             int d = Convert.ToInt32(txtEchange.Text);
                             int n;
                             n = a * Convert.ToInt32(d);
-                            
+                            int c;
                             c = +n;
                             Total.Text = Convert.ToString(c);
                             Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
