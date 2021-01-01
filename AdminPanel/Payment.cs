@@ -123,13 +123,13 @@ namespace AdminPanel
         {
             
             int a;
-            int b;
-         //  int c;
+            float b;
+         float c;
             
             int x;
-            int z;
+           // int z;
             a = Convert.ToInt32(Deposit.Text);
-            b = Convert.ToInt32(Amount.Text);
+            b = float.Parse(Amount.Text);
             txtEchange.Text = Convert.ToString(0);
            txtVal.Text = Convert.ToString(0);
             // d = Convert.ToInt32(txtEchange.Text);
@@ -152,7 +152,7 @@ namespace AdminPanel
                     txtVal.Text = comboBox3.SelectedValue.ToString();
                     float d = float.Parse(comboBox3.SelectedValue.ToString());
                    float n;
-                    float c;
+                    //float c;
                    n = a * d;
                     c = n + b;
                     Total.Text = Convert.ToString(c);
@@ -175,7 +175,7 @@ namespace AdminPanel
                     Deposit.Visible = true;
                     label8.Text = "Withdraw";
                     label8.Visible = true;
-                    int c;
+                   // int c;
                     c = b - a;
                     Total.Text = Convert.ToString(c);
                     Action.Text = "In your bank account was removed " + a.ToString() + " your total balance now is " + c.ToString();
@@ -203,10 +203,10 @@ namespace AdminPanel
                             int d = Convert.ToInt32(txtEchange.Text);
                             int n;
                             n = a * Convert.ToInt32(d);
-                            int c;
-                            c = +n;
-                            Total.Text = Convert.ToString(c);
-                            Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
+                            int z;
+                            z = +n;
+                            Total.Text = Convert.ToString(z);
+                            Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + z.ToString();
                         }
                     }
                 }
@@ -355,6 +355,7 @@ namespace AdminPanel
 
         private void Amount_TextChanged(object sender, EventArgs e)
         {
+
         }
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)
