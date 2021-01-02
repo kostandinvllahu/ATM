@@ -71,8 +71,22 @@ namespace AdminPanel
 
         public void fillClientcombo()
         {
+            //E KE LENE KETU BEJE QE TE MARRI ID DHE TE JAPI EMRIN E FILANIT DHE TE DHENAT E TJERA!!!
+            /* Con.Open();
+
+              SqlCommand cmd = new SqlCommand("select Username from Client_tbl where IdCard='" + search.Text + "'", Con);
+              SqlDataReader rdr;
+              rdr = cmd.ExecuteReader();
+              DataTable dt = new DataTable();
+              dt.Columns.Add("Username", typeof(string));
+              dt.Load(rdr);
+              comboBox1.ValueMember = "Username";
+              comboBox1.DataSource = dt;
+              Con.Close();
+             */
+
             Con.Open();
-            SqlCommand cmd = new SqlCommand("select Username from Client_tbl", Con);
+            SqlCommand cmd = new SqlCommand("select Username from Client_tbl where IdCard='" + search.Text + "'", Con);
             SqlDataReader rdr;
             rdr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
@@ -81,7 +95,9 @@ namespace AdminPanel
             comboBox1.ValueMember = "Username";
             comboBox1.DataSource = dt;
             Con.Close();
+
         }
+
 
         public void fillvalut()
         {
@@ -212,14 +228,18 @@ namespace AdminPanel
                         button3.Visible = true;
                         if (buttonClicked == true)
                         {
-                            txtEchange.Text = cmbExchange.SelectedValue.ToString();
-                            float d = float.Parse(txtEchange.Text);
+
+
+                            txtVal.Text = comboBox3.SelectedValue.ToString();
+                            float d = float.Parse(comboBox3.SelectedValue.ToString());
                             float n;
-                            n = a * d;
-                            
-                            c = +n;
+                            //float c;
+                            n = a / d;
+                            int z = (int)Math.Round(n);
+                            c = z + b;
                             Total.Text = Convert.ToString(c);
-                            Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
+                            //MessageBox.Show(z.ToString());
+                            Action.Text = "In your bank account was added " + a.ToString() + " from " +Sender.Text + " your total balance now is " + c.ToString();
                         }
                     }
                 }
@@ -290,8 +310,21 @@ namespace AdminPanel
             }
         }*/
 
+            public void error()
+        {
+            if (radioButton3.Checked == true)
+            {
+                if (Sender.Text == "")
+                {
+                    MessageBox.Show("Please select the sender!");
+                    clean();
+                }
+            }
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
+            error();
             if (ID.Text == "")
             {
                 MessageBox.Show("Please Insert ID!");
@@ -351,7 +384,7 @@ namespace AdminPanel
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             fillval();
-            buttonClicked1 = true;
+            buttonClicked = true;
             total();
             
         }
@@ -395,8 +428,7 @@ namespace AdminPanel
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // fillClientcombo();
-            Sender.Text = comboBox1.SelectedValue.ToString();
+            //ERROR KETU
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -432,6 +464,7 @@ namespace AdminPanel
 
         private void button3_Click(object sender, EventArgs e)
         {
+            fillClientcombo();
             fillvalut();
             exrate();
             buttonClicked = true;
@@ -450,6 +483,8 @@ namespace AdminPanel
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
+            fillval();
+            buttonClicked1 = true;
             total();
         }
 
@@ -459,6 +494,12 @@ namespace AdminPanel
             //txtVal.Text = comboBox3.SelectedValue.ToString();
            // float.TryParse(comboBox3.Text);
           
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+           // fillClientcombo();
+            Sender.Text = comboBox1.SelectedValue.ToString();
         }
     }
 }
