@@ -122,13 +122,13 @@ namespace AdminPanel
         public void total()
         {
             
-            int a;
+            float a;
             float b;
          float c;
             
-            int x;
+            //int x;
            // int z;
-            a = Convert.ToInt32(Deposit.Text);
+            a = float.Parse(Deposit.Text);
             b = float.Parse(Amount.Text);
             txtEchange.Text = Convert.ToString(0);
            txtVal.Text = Convert.ToString(0);
@@ -153,9 +153,11 @@ namespace AdminPanel
                     float d = float.Parse(comboBox3.SelectedValue.ToString());
                    float n;
                     //float c;
-                   n = a * d;
-                    c = n + b;
+                   n = a / d;
+                    int z = (int)Math.Round(n);
+                    c = z + b;
                     Total.Text = Convert.ToString(c);
+                 //MessageBox.Show(z.ToString());
                     Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
                 }
             }
@@ -176,9 +178,20 @@ namespace AdminPanel
                     label8.Text = "Withdraw";
                     label8.Visible = true;
                    // int c;
-                    c = b - a;
-                    Total.Text = Convert.ToString(c);
-                    Action.Text = "In your bank account was removed " + a.ToString() + " your total balance now is " + c.ToString();
+                   if(b < a)
+                    {
+                        MessageBox.Show("You dont have enough money!");
+                    }
+                    else
+                    {
+                        if(b >= a)
+                        {
+                            c = b - a;
+                            Total.Text = Convert.ToString(c);
+                            Action.Text = "In your bank account was removed " + a.ToString() + " your total balance now is " + c.ToString();
+                        }
+                    }
+                   
                 }
                 else
                 { //RREGULLO KETU QE TE DERGOSH LEKE NE LLOGARI TJETER
@@ -200,13 +213,13 @@ namespace AdminPanel
                         if (buttonClicked == true)
                         {
                             txtEchange.Text = cmbExchange.SelectedValue.ToString();
-                            int d = Convert.ToInt32(txtEchange.Text);
-                            int n;
-                            n = a * Convert.ToInt32(d);
-                            int z;
-                            z = +n;
-                            Total.Text = Convert.ToString(z);
-                            Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + z.ToString();
+                            float d = float.Parse(txtEchange.Text);
+                            float n;
+                            n = a * d;
+                            
+                            c = +n;
+                            Total.Text = Convert.ToString(c);
+                            Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
                         }
                     }
                 }
