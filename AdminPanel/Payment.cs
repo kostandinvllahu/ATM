@@ -328,6 +328,22 @@ namespace AdminPanel
             }
         }
 
+        //DATABASE WHERE ALL HISTORY TRANSACTIONS ARE SAVED!
+        public void Transactions()
+        {
+            if (radioButton3.Checked == true)
+            {
+                    Con.Open();
+                    SqlCommand cmd = new SqlCommand("insert into Transactions_tbl values(" + ID.Text + ",'" + txtName.Text + "','" + lname.Text + "','" + phone.Text + "','" + currency.Text + "','" + Deposit.Text + "','" + Iban.Text + "','" + password.Text + "','" + idcard.Text + Action.Text + "')", Con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Admin Successfully Added!");
+                    Con.Close();
+                    populate();
+                    //updateroomstate();
+                    clean();
+            }
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             error();
@@ -351,6 +367,7 @@ namespace AdminPanel
                     MessageBox.Show("Client Successfully Edited!");
                     Con.Close();
                     populate();
+                    Transactions();
                     clean();
                 }
             }

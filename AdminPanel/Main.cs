@@ -20,15 +20,15 @@ namespace AdminPanel
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Form1 f = new Form1();
-            f.Show();
             this.Close();
+            f.Show();
         }
 
         private void guna2ImageButton5_Click(object sender, EventArgs e)
         {
             AdminInfo a = new AdminInfo();
-            a.Show();
             this.Close();
+            a.Show();
         }
 
         private void Datelbl_Click(object sender, EventArgs e)
@@ -60,23 +60,30 @@ namespace AdminPanel
         private void guna2ImageButton2_Click(object sender, EventArgs e)
         {
             Clients c = new Clients();
-            c.Show();
             this.Close();
+            c.Show();
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
             Payment p = new Payment();
-            p.Show();
             this.Close();
+            p.Show();
 
         }
 
         private void guna2ImageButton3_Click(object sender, EventArgs e)
         {
             Valut v = new Valut();
-            v.Show();
             this.Close();
+            v.Show();
+        }
+
+        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        {
+            Transactions t = new Transactions();
+            this.Close();
+            t.Show();
         }
     }
 }
