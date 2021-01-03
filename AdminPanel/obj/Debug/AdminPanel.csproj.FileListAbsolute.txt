@@ -16,3 +16,4 @@ C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.AdminInfo.
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Clients.resources
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Payment.resources
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Valut.resources
+C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Calculator.resources

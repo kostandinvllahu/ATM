@@ -259,6 +259,7 @@ namespace AdminPanel
 
         public void clean()
         {
+            search.Text = "";
             //ID.Text = "";
             ID.Text = "";
             //txtAdmin.Text = "";
@@ -319,6 +320,11 @@ namespace AdminPanel
                     MessageBox.Show("Please select the sender!");
                     clean();
                 }
+                //FIX HERE DEPOSIT VALUE  X != 0
+                if(Deposit.Value == 0)
+                {
+                    MessageBox.Show("Please insert an ammount");
+                }
             }
         }
 
@@ -366,7 +372,7 @@ namespace AdminPanel
             else
             {
                 Con.Open();
-                string Myquery = "select * from Client_tbl where Username = '" + search.Text + "'";
+                string Myquery = "select * from Client_tbl where IdCard = '" + search.Text + "'";
                 SqlDataAdapter da = new SqlDataAdapter(Myquery, Con);
                 SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
                 var ds = new DataSet();
@@ -500,6 +506,17 @@ namespace AdminPanel
         {
            // fillClientcombo();
             Sender.Text = comboBox1.SelectedValue.ToString();
+        }
+
+        private void currency_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Calculator c = new Calculator();
+            c.Show();
         }
     }
 }
