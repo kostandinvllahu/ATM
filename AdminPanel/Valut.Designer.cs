@@ -401,7 +401,7 @@
             this.Controls.Add(this.txtValut);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.vlera);
-            this.Controls.Add(this.guna2ImageButton2);
+          //  this.Controls.Add(this.guna2ImageButton2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.search);

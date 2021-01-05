@@ -334,7 +334,7 @@ namespace AdminPanel
             if (radioButton3.Checked == true)
             {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into Transactions_tbl values(" + ID.Text + ",'" + txtName.Text + "','" + lname.Text + "','"+ Action.Text + "','" + idcard.Text + "')", Con);
+                    SqlCommand cmd = new SqlCommand("insert into Transactions_tbl values(" + ID.Text + ",'" + txtName.Text +"')", Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Admin Successfully Added!");
                     Con.Close();
