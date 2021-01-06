@@ -35,6 +35,9 @@ namespace AdminPanel
             
             //populate();
         }
+        String name;
+        String add;
+        String dep;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -239,7 +242,13 @@ namespace AdminPanel
                             c = z + b;
                             Total.Text = Convert.ToString(c);
                             //MessageBox.Show(z.ToString());
-                            Action.Text = "In your bank account was added " + a.ToString() + " from " +Sender.Text + " your total balance now is " + c.ToString();
+                             name = "From " + Convert.ToString(Sender.Text);
+                             add = Convert.ToString(a);
+                             dep = "Your overall deposit is " + Convert.ToString(b);
+                            Action.Text = "In your bank account was added " + add;
+                            textBox1.Text = name;
+                            textBox2.Text = dep;
+                           // Action.Text 
                         }
                     }
                 }
@@ -334,9 +343,9 @@ namespace AdminPanel
             if (radioButton3.Checked == true)
             {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into Transactions_tbl values(" + ID.Text + ",'" + txtName.Text +"')", Con);
+                    SqlCommand cmd = new SqlCommand("insert into Transactions_tbl values(" + ID.Text + ",'" + txtName.Text + "','" + Action.Text + "','" + textBox1.Text + "','"+textBox2.Text+"')", Con);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Admin Successfully Added!");
+                    MessageBox.Show("Transaction Successfully Added!");
                     Con.Close();
                     populate();
                     //updateroomstate();
@@ -446,7 +455,7 @@ namespace AdminPanel
 
         private void Action_TextChanged(object sender, EventArgs e)
         {
-
+          
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -534,6 +543,11 @@ namespace AdminPanel
         {
             Calculator c = new Calculator();
             c.Show();
+        }
+
+        private void Sender_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
