@@ -34,10 +34,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.search = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.Client = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.Client)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,12 +62,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "HISTORY TRANSACTIONS";
             // 
-            // textBox1
+            // search
             // 
-            this.textBox1.Location = new System.Drawing.Point(54, 114);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(242, 20);
-            this.textBox1.TabIndex = 3;
+            this.search.Location = new System.Drawing.Point(54, 114);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(242, 20);
+            this.search.TabIndex = 3;
             // 
             // button2
             // 
@@ -76,6 +77,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "SEARCH";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -152,15 +154,33 @@
             this.Client.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.Client.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // guna2ImageButton2
+            // 
+            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.CheckedState.Parent = this.guna2ImageButton2;
+            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.HoverState.Parent = this.guna2ImageButton2;
+            this.guna2ImageButton2.Image = global::AdminPanel.Properties.Resources.refresh_removebg_preview;
+            this.guna2ImageButton2.ImageRotate = 0F;
+            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(50, 50);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(428, 96);
+            this.guna2ImageButton2.Name = "guna2ImageButton2";
+            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton2.PressedState.Parent = this.guna2ImageButton2;
+            this.guna2ImageButton2.Size = new System.Drawing.Size(54, 44);
+            this.guna2ImageButton2.TabIndex = 198;
+            this.guna2ImageButton2.Click += new System.EventHandler(this.guna2ImageButton2_Click);
+            // 
             // Transactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 542);
+            this.Controls.Add(this.guna2ImageButton2);
             this.Controls.Add(this.Client);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.search);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -178,9 +198,10 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2DataGridView Client;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
     }
 }

@@ -343,7 +343,8 @@ namespace AdminPanel
             if (radioButton3.Checked == true)
             {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into Transactions_tbl values(" + ID.Text + ",'" + txtName.Text + "','" + Action.Text + "','" + textBox1.Text + "','"+textBox2.Text+"')", Con);
+                SqlCommand cmd = new SqlCommand("insert into Transactions_tbl values(" + ID.Text + ",'" + txtName.Text + "','" + Action.Text + "','" + textBox1.Text + "','" + textBox2.Text + "','"+idcard.Text+"')", Con);
+                 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Transaction Successfully Added!");
                     Con.Close();

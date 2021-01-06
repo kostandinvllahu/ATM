@@ -43,5 +43,30 @@ namespace AdminPanel
         {
             populate();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (search.Text == "")
+            {
+                MessageBox.Show("Please enter the ID");
+            }
+            else
+            {
+                Con.Open();
+                string Myquery = "select * from Transactions_tbl where IdCard = '" + search.Text + "'";
+                SqlDataAdapter da = new SqlDataAdapter(Myquery, Con);
+                SqlCommandBuilder cbuilder = new SqlCommandBuilder(da);
+                var ds = new DataSet();
+                da.Fill(ds);
+                Client.DataSource = ds.Tables[0];
+                Con.Close();
+            }
+        }
+
+        private void guna2ImageButton2_Click(object sender, EventArgs e)
+        {
+            populate();
+            search.Text = "";
+        }
     }
 }

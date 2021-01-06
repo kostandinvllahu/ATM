@@ -54,6 +54,7 @@
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtAdmin = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtValut = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.Room)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -393,15 +394,32 @@
             this.txtValut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtValut.OnValueChanged += new System.EventHandler(this.txtValut_OnValueChanged);
             // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.CheckedState.Parent = this.guna2ImageButton1;
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.Parent = this.guna2ImageButton1;
+            this.guna2ImageButton1.Image = global::AdminPanel.Properties.Resources.refresh_removebg_preview;
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(50, 50);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(1002, 117);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.PressedState.Parent = this.guna2ImageButton1;
+            this.guna2ImageButton1.Size = new System.Drawing.Size(54, 44);
+            this.guna2ImageButton1.TabIndex = 198;
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            // 
             // Valut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 683);
+            this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.txtValut);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.vlera);
-          //  this.Controls.Add(this.guna2ImageButton2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.search);
@@ -453,5 +471,6 @@
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtAdmin;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtValut;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
     }
 }
