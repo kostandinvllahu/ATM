@@ -32,7 +32,7 @@ namespace AdminPanel
             //IT WORKS BUT AFTER YOU CHANGE SENDER ITS NOT UPDATEING THE VALUT AND EXCHANGE CHECK FOR A METHOD TO UPDATE!
             InitializeComponent();
             fillClientcombo();
-            
+            radioButton3.Checked = true;
             //populate();
         }
         String name;
@@ -165,6 +165,9 @@ namespace AdminPanel
                 label8.Text = "Deposit";
                 label8.Visible = true;
 
+                //THERE IS A BUG WHEN DEPOSIT MONEY FROM ADMIN!
+                //ALSO CHECK THE USER PANEL TO FIX TO NOT SEND MONEY TO SAME ID AND WHEN MONEY IS 0 AND THE AMOUNT IS HIGHER
+               // THEN 0 TO NOT BE DELETED FROM THE DATABASE!
 
                 if (buttonClicked1 == true)
                 {
@@ -378,7 +381,7 @@ namespace AdminPanel
                     Con.Close();
                     populate();
                    Transactions();
-                    //clean();
+                   clean();
                 }
             }
         }
