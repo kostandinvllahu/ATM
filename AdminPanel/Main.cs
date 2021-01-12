@@ -85,5 +85,12 @@ namespace AdminPanel
             this.Close();
             t.Show();
         }
+
+        private void guna2ImageButton6_Click(object sender, EventArgs e)
+        {
+            Deposit d = new Deposit();
+            this.Close();
+            d.Show();
+        }
     }
 }

@@ -103,6 +103,16 @@ namespace AdminPanel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap deposit_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("deposit-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kisspng_foreign_exchange_market_exchange_rate_money_bank_f_forex_5b35ed05781fa4_963152941530260741492_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("kisspng-foreign-exchange-market-exchange-rate-money-bank-f-forex-5b35ed05781fa4.9" +

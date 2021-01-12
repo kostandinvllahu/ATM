@@ -3,7 +3,6 @@ C:\Users\User\source\repos\AdminPanel\AdminPanel\bin\Debug\AdminPanel.exe
 C:\Users\User\source\repos\AdminPanel\AdminPanel\bin\Debug\AdminPanel.pdb
 C:\Users\User\source\repos\AdminPanel\AdminPanel\bin\Debug\Bunifu_UI_v1.52.dll
 C:\Users\User\source\repos\AdminPanel\AdminPanel\bin\Debug\Guna.UI2.dll
-C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.csprojAssemblyReference.cache
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Form1.resources
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Properties.Resources.resources
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.csproj.GenerateResource.cache
@@ -18,3 +17,4 @@ C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Payment.re
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Valut.resources
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Calculator.resources
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Transactions.resources
+C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Deposit.resources
