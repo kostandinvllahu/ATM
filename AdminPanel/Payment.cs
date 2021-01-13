@@ -243,7 +243,7 @@ namespace AdminPanel
                             float n;
                             n = a / d;
                             int z = (int)Math.Round(n);
-                            c = z + b;
+                            //c = z + b;
                            // Total.Text = Convert.ToString(c);
                             if (b < n)
                             {
@@ -253,7 +253,7 @@ namespace AdminPanel
                             {
                                 if (b >= n)
                                 {
-                                    c = z - b;
+                                    c = b - z;
                                     Total.Text = Convert.ToString(c);
                                     Action.Text = "In your bank account was removed " + a.ToString() + " your total balance now is " + c.ToString();
                                 }
@@ -444,6 +444,7 @@ namespace AdminPanel
                     }
                     else if(radioButton2.Checked == true)
                     {
+                        //YOU MUST MAKE AN ERROR COMAND HERE TO NOT ALLOW BANK TO GO MINUS!
                         totbank = bank - deposit;
                     }
                     Con.Open();
