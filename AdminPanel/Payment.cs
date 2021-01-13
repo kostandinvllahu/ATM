@@ -243,6 +243,8 @@ namespace AdminPanel
                             float n;
                             n = a / d;
                             int z = (int)Math.Round(n);
+                            c = z + b;
+                           // Total.Text = Convert.ToString(c);
                             if (b < n)
                             {
                                 MessageBox.Show("You dont have enough money!");
@@ -251,7 +253,7 @@ namespace AdminPanel
                             {
                                 if (b >= n)
                                 {
-                                    c = b - n;
+                                    c = z - b;
                                     Total.Text = Convert.ToString(c);
                                     Action.Text = "In your bank account was removed " + a.ToString() + " your total balance now is " + c.ToString();
                                 }
