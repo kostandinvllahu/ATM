@@ -119,6 +119,8 @@ namespace AdminPanel
 
         }
 
+        
+
         public void fillval()
         {
           
@@ -140,80 +142,100 @@ namespace AdminPanel
 
         public void total()
         {
-            
+
             float a;
             float b;
-         float c;
-            
+            float c;
+            float num = 0;
+
             //int x;
-           // int z;
+            // int z;
             a = float.Parse(Deposit.Text);
             b = float.Parse(Amount.Text);
+            // num = float.Parse(txtBankDeposit.Text);
             txtEchange.Text = Convert.ToString(0);
-           txtVal.Text = Convert.ToString(0);
+            txtVal.Text = Convert.ToString(0);
             // d = Convert.ToInt32(txtEchange.Text);
             if (radioButton1.Checked == true)
             {
-              
-                label20.Visible = false;
-                label21.Visible = false;
-                comboBox1.Visible = false;
-                comboBox2.Visible = false;
-                cmbExchange.Visible = false;
-                button3.Visible = false;
-                Deposit.Visible = true;
-                label8.Text = "Deposit";
-                label8.Visible = true;
-
-                //THERE IS A BUG WHEN DEPOSIT MONEY FROM ADMIN!
-                //ALSO CHECK THE USER PANEL TO FIX TO NOT SEND MONEY TO SAME ID AND WHEN MONEY IS 0 AND THE AMOUNT IS HIGHER
-               // THEN 0 TO NOT BE DELETED FROM THE DATABASE!
-
-                if (buttonClicked1 == true)
+                if (ID.Text == "")
                 {
-                    txtVal.Text = comboBox3.SelectedValue.ToString();
-                    float d = float.Parse(comboBox3.SelectedValue.ToString());
-                   float n;
-                    //float c;
-                   n = a / d;
-                    int z = (int)Math.Round(n);
-                    c = z + b;
-                    Total.Text = Convert.ToString(c);
-                 //MessageBox.Show(z.ToString());
-                    Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
+                    MessageBox.Show("Select a client first!");
+                    clean();
                 }
-            }
-            else
-            {
-                if (radioButton2.Checked == true)
+                else
                 {
-                    // Deposit.Visible = false;
-                    // label8.Visible = false;
                     label20.Visible = false;
                     label21.Visible = false;
                     comboBox1.Visible = false;
                     comboBox2.Visible = false;
                     cmbExchange.Visible = false;
                     button3.Visible = false;
-
                     Deposit.Visible = true;
-                    label8.Text = "Withdraw";
+                    label8.Text = "Deposit";
                     label8.Visible = true;
-                   // int c;
-                   if(b < a)
+
+                    //THERE IS A BUG WHEN DEPOSIT MONEY FROM ADMIN!
+                    //ALSO CHECK THE USER PANEL TO FIX TO NOT SEND MONEY TO SAME ID AND WHEN MONEY IS 0 AND THE AMOUNT IS HIGHER
+                    // THEN 0 TO NOT BE DELETED FROM THE DATABASE!
+
+                    if (buttonClicked1 == true)
                     {
-                        MessageBox.Show("You dont have enough money!");
+                        txtVal.Text = comboBox3.SelectedValue.ToString();
+                        float d = float.Parse(comboBox3.SelectedValue.ToString());
+                        float n;
+                        //float c;
+                        n = a / d;
+                        int z = (int)Math.Round(n);
+                        c = z + b;
+                        Total.Text = Convert.ToString(c);
+                        num += a;
+                        txtBankDeposit.Text = Convert.ToString(num);
+                        //MessageBox.Show(z.ToString());
+                        Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
+                        //MessageBox.Show("Total bank has: " + num);
+                    }
+                }
+            }
+            else
+            {
+                if (radioButton2.Checked == true)
+                {
+                    if (ID.Text == "")
+                    {
+                        MessageBox.Show("Select a client first!");
+                        clean();
                     }
                     else
                     {
-                        if(b >= a)
+                        // Deposit.Visible = false;
+                        // label8.Visible = false;
+                        label20.Visible = false;
+                        label21.Visible = false;
+                        comboBox1.Visible = false;
+                        comboBox2.Visible = false;
+                        cmbExchange.Visible = false;
+                        button3.Visible = false;
+
+                        Deposit.Visible = true;
+                        label8.Text = "Withdraw";
+                        label8.Visible = true;
+                        // int c;
+                        if (b < a)
                         {
-                            c = b - a;
-                            Total.Text = Convert.ToString(c);
-                            Action.Text = "In your bank account was removed " + a.ToString() + " your total balance now is " + c.ToString();
+                            MessageBox.Show("You dont have enough money!");
                         }
+                        else
+                        {
+                            if (b >= a)
+                            {
+                                c = b - a;
+                                Total.Text = Convert.ToString(c);
+                                Action.Text = "In your bank account was removed " + a.ToString() + " your total balance now is " + c.ToString();
+                            }
+                        }
+
                     }
-                   
                 }
                 else
                 { //RREGULLO KETU QE TE DERGOSH LEKE NE LLOGARI TJETER
@@ -221,43 +243,49 @@ namespace AdminPanel
                     if (radioButton3.Checked == true)
                     {
 
-
-
-                        Deposit.Visible = true;
-                        label8.Text = "Send";
-                        label8.Visible = true;
-                        label20.Visible = true;
-                        label21.Visible = true;
-                        comboBox1.Visible = true;
-                        comboBox2.Visible = true;
-                        cmbExchange.Visible = true;
-                        button3.Visible = true;
-                        if (buttonClicked == true)
+                        if (ID.Text == "")
                         {
+                           // MessageBox.Show("Select a client first!");
+                            clean();
+                        }
+                        else
+                        {
+                            Deposit.Visible = true;
+                            label8.Text = "Send";
+                            label8.Visible = true;
+                            label20.Visible = true;
+                            label21.Visible = true;
+                            comboBox1.Visible = true;
+                            comboBox2.Visible = true;
+                            cmbExchange.Visible = true;
+                            button3.Visible = true;
+                            if (buttonClicked == true)
+                            {
 
 
-                            txtVal.Text = comboBox3.SelectedValue.ToString();
-                            float d = float.Parse(comboBox3.SelectedValue.ToString());
-                            float n;
-                            //float c;
-                            n = a / d;
-                            int z = (int)Math.Round(n);
-                            c = z + b;
-                            Total.Text = Convert.ToString(c);
-                            //MessageBox.Show(z.ToString());
-                             name = "From " + Convert.ToString(Sender.Text);
-                             add = Convert.ToString(a);
-                             dep = "Your overall deposit is " + Convert.ToString(b);
-                            Action.Text = "In your bank account was added " + add;
-                            textBox1.Text = name;
-                            textBox2.Text = dep;
-                           // Action.Text 
+                                txtVal.Text = comboBox3.SelectedValue.ToString();
+                                float d = float.Parse(comboBox3.SelectedValue.ToString());
+                                float n;
+                                //float c;
+                                n = a / d;
+                                int z = (int)Math.Round(n);
+                                c = z + b;
+                                Total.Text = Convert.ToString(c);
+                                //MessageBox.Show(z.ToString());
+                                name = "From " + Convert.ToString(Sender.Text);
+                                add = Convert.ToString(a);
+                                dep = "Your overall deposit is " + Convert.ToString(b);
+                                Action.Text = "In your bank account was added " + add;
+                                textBox1.Text = name;
+                                textBox2.Text = dep;
+                                // Action.Text 
+                            }
                         }
                     }
                 }
+
+
             }
-            
-             
         }
 
         private bool buttonClicked1 = false;
@@ -552,6 +580,11 @@ namespace AdminPanel
         private void Sender_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtBankDeposit_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
