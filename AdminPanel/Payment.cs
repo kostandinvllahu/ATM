@@ -159,7 +159,7 @@ namespace AdminPanel
             float a;
             float b;
             float c;
-            float num = 0;
+           // float num = 0;
 
             //int x;
             // int z;
@@ -202,8 +202,8 @@ namespace AdminPanel
                         int z = (int)Math.Round(n);
                         c = z + b;
                         Total.Text = Convert.ToString(c);
-                        num += a;
-                        txtBankDeposit.Text = Convert.ToString(num);
+                       // num += a;
+                       // txtBankDeposit.Text = Convert.ToString(num);
                         //MessageBox.Show(z.ToString());
                         Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
                         //MessageBox.Show("Total bank has: " + num);
@@ -413,6 +413,9 @@ namespace AdminPanel
                 }
                 else
                 {
+                    int deposit = Convert.ToInt32(Deposit.Text);
+                    int bank = Convert.ToInt32(txtBankDeposit.Text);
+                    bank += deposit;
                     total();
                     Con.Open();
                     string myquery = "UPDATE Client_tbl set Deposit='" + Total.Text + "'where Id=" + ID.Text + ";";
