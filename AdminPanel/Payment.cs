@@ -24,6 +24,19 @@ namespace AdminPanel
             da.Fill(ds);
             Client.DataSource = ds.Tables[0];
             Con.Close();
+            Con.Open();
+            SqlCommand cmd = new SqlCommand("select Amount from total_tbl", Con);
+            SqlDataReader rdr;
+            rdr = cmd.ExecuteReader();
+            if (rdr.Read())
+            {
+                txtBankDeposit.Text = (rdr["Amount"].ToString());
+                //  label3.Text = (rdr["Username"].ToString());
+                //textBox1.Text = (rdr["Deposit"].ToString());
+//textBox2.Text = (rdr["ID"].ToString());
+                //txtID.Text = (rdr["ID"].ToString());
+            }
+            Con.Close(); ;
         }
 
         public Payment()
@@ -407,9 +420,15 @@ namespace AdminPanel
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Client Successfully Edited!");
                     Con.Close();
+                    Con.Open();
+                     myquery = "UPDATE total_tbl set Amount='" + txtBankDeposit.Text + "'";
+                    SqlCommand abc = new SqlCommand(myquery, Con);
+                    abc.ExecuteNonQuery();
+                    MessageBox.Show("Bank Successfully Edited!");
+                    Con.Close();
+                    clean();
                     populate();
-                   Transactions();
-                   clean();
+                    Transactions();
                 }
             }
         }

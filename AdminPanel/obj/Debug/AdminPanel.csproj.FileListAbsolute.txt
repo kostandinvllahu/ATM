@@ -18,3 +18,4 @@ C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Valut.reso
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Calculator.resources
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Transactions.resources
 C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.Deposit.resources
+C:\Users\User\source\repos\AdminPanel\AdminPanel\obj\Debug\AdminPanel.csprojAssemblyReference.cache
