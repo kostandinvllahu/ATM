@@ -161,11 +161,12 @@ namespace AdminPanel
             float c;
             // float num = 0;
            
-           
+
             //int x;
             // int z;
             a = float.Parse(Deposit.Text);
             b = float.Parse(Amount.Text);
+             //PROBLEM HERE NEED TO MAKE THE WITHDRAW AMOUNT CONVERTED TO SELECTED VALUE
             // num = float.Parse(txtBankDeposit.Text);
             txtEchange.Text = Convert.ToString(0);
             txtVal.Text = Convert.ToString(0);
@@ -196,9 +197,10 @@ namespace AdminPanel
                     if (buttonClicked1 == true)
                     {
                         txtVal.Text = comboBox3.SelectedValue.ToString();
+
+                        //float c;
                         float d = float.Parse(comboBox3.SelectedValue.ToString());
                         float n;
-                        //float c;
                         n = a / d;
                         int z = (int)Math.Round(n);
                         c = z + b;
@@ -234,21 +236,28 @@ namespace AdminPanel
                         Deposit.Visible = true;
                         label8.Text = "Withdraw";
                         label8.Visible = true;
-                        // int c;
-                        if (b < a)
+                        if (buttonClicked2 == true)
                         {
-                            MessageBox.Show("You dont have enough money!");
-                        }
-                        else
-                        {
-                            if (b >= a)
+                            txtVal.Text = comboBox3.SelectedValue.ToString();
+                            float d = float.Parse(comboBox3.SelectedValue.ToString());
+                            float n;
+                            n = a / d;
+                            int z = (int)Math.Round(n);
+                            if (b < n)
                             {
-                                c = b - a;
-                                Total.Text = Convert.ToString(c);
-                                Action.Text = "In your bank account was removed " + a.ToString() + " your total balance now is " + c.ToString();
+                                MessageBox.Show("You dont have enough money!");
                             }
-                        }
+                            else
+                            {
+                                if (b >= n)
+                                {
+                                    c = b - n;
+                                    Total.Text = Convert.ToString(c);
+                                    Action.Text = "In your bank account was removed " + a.ToString() + " your total balance now is " + c.ToString();
+                                }
+                            }
 
+                        }
                     }
                 }
                 else
@@ -259,7 +268,7 @@ namespace AdminPanel
 
                         if (ID.Text == "")
                         {
-                           // MessageBox.Show("Select a client first!");
+                            // MessageBox.Show("Select a client first!");
                             clean();
                         }
                         else
@@ -303,6 +312,8 @@ namespace AdminPanel
         }
 
         private bool buttonClicked1 = false;
+
+        private bool buttonClicked2 = false;
 
         private bool buttonClicked = false;
 
@@ -487,6 +498,8 @@ namespace AdminPanel
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
+            fillval();
+            buttonClicked2 = true;
             total();
         }
 
