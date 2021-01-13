@@ -151,7 +151,7 @@ namespace AdminPanel
             
         }
 
-
+        
 
         public void total()
         {
@@ -159,8 +159,9 @@ namespace AdminPanel
             float a;
             float b;
             float c;
-           // float num = 0;
-
+            // float num = 0;
+           
+           
             //int x;
             // int z;
             a = float.Parse(Deposit.Text);
@@ -202,8 +203,8 @@ namespace AdminPanel
                         int z = (int)Math.Round(n);
                         c = z + b;
                         Total.Text = Convert.ToString(c);
-                       // num += a;
-                       // txtBankDeposit.Text = Convert.ToString(num);
+                        // num += a;
+                        // txtBankDeposit.Text = Convert.ToString(num);
                         //MessageBox.Show(z.ToString());
                         Action.Text = "In your bank account was added " + a.ToString() + " your total balance now is " + c.ToString();
                         //MessageBox.Show("Total bank has: " + num);
@@ -413,9 +414,7 @@ namespace AdminPanel
                 }
                 else
                 {
-                    int deposit = Convert.ToInt32(Deposit.Text);
-                    int bank = Convert.ToInt32(txtBankDeposit.Text);
-                    bank += deposit;
+                   // totabank.Text = Convert.ToString(totbank);
                     total();
                     Con.Open();
                     string myquery = "UPDATE Client_tbl set Deposit='" + Total.Text + "'where Id=" + ID.Text + ";";
@@ -423,8 +422,19 @@ namespace AdminPanel
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Client Successfully Edited!");
                     Con.Close();
+                    int deposit = Convert.ToInt32(Deposit.Text);
+                    int bank = Convert.ToInt32(txtBankDeposit.Text);
+                    int totbank = 0;
+                    if (radioButton1.Checked == true || radioButton3.Checked == true)
+                    {
+                        totbank = bank + deposit;
+                    }
+                    else if(radioButton2.Checked == true)
+                    {
+                        totbank = bank - deposit;
+                    }
                     Con.Open();
-                     myquery = "UPDATE total_tbl set Amount='" + txtBankDeposit.Text + "'";
+                     myquery = "UPDATE total_tbl set Amount='" + totbank + "'";
                     SqlCommand abc = new SqlCommand(myquery, Con);
                     abc.ExecuteNonQuery();
                     MessageBox.Show("Bank Successfully Edited!");
