@@ -18,7 +18,7 @@ namespace AdminPanel
         public Deposit()
         {
             InitializeComponent();
-           // fillbox();
+            // fillbox();
         }
 
         public void fillbox()
@@ -29,7 +29,7 @@ namespace AdminPanel
             rdr = cmd.ExecuteReader();
             if (rdr.Read())
             {
-                textBox1.Text = (rdr["Amount"].ToString()) + "Lek";
+                textBox1.Text = (rdr["Amount"].ToString());
                 //  label3.Text = (rdr["Username"].ToString());
                 //textBox1.Text = (rdr["Deposit"].ToString());
                 //textBox2.Text = (rdr["ID"].ToString());
@@ -51,6 +51,40 @@ namespace AdminPanel
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            if (textBox2.Text == "")
+            {
+                MessageBox.Show("Please insert a value!");
+            }
+            else
+            {
+                int a = Convert.ToInt32(textBox1.Text);
+                int b = Convert.ToInt32(textBox2.Text);
+                int c;
+                c = b+a;
+                Con.Open();
+               string myquery = "UPDATE total_tbl set Amount='" + c + "'";
+                SqlCommand abc = new SqlCommand(myquery, Con);
+                abc.ExecuteNonQuery();
+                MessageBox.Show("Money got inserted successfully!");
+                Con.Close();
+                fillbox();
+                textBox2.Text = "";
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

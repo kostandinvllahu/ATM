@@ -412,6 +412,36 @@ namespace AdminPanel
             }
         }
 
+        public void bankerror()
+        {
+            if (radioButton2.Checked == true)
+            {
+
+                int deposit = Convert.ToInt32(Deposit.Text);
+                int bank = Convert.ToInt32(txtBankDeposit.Text);
+                int totbank = 0;
+                float a = float.Parse(Deposit.Text);
+                float b = float.Parse(Amount.Text);
+                txtVal.Text = comboBox3.SelectedValue.ToString();
+                float d = float.Parse(comboBox3.SelectedValue.ToString());
+                float n;
+                n = a / d;
+                int z = (int)Math.Round(n);
+
+                if (b < n)
+                {
+                    MessageBox.Show("You dont have enough money!");
+                    clean();
+                }
+                else if(b>n)
+                {
+                    totbank = bank - deposit;
+                    MessageBox.Show(totbank.ToString());
+                }
+
+            }
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             error();
@@ -427,7 +457,7 @@ namespace AdminPanel
                 }
                 else
                 {
-                   // totabank.Text = Convert.ToString(totbank);
+                    // totabank.Text = Convert.ToString(totbank);
                     total();
                     Con.Open();
                     string myquery = "UPDATE Client_tbl set Deposit='" + Total.Text + "'where Id=" + ID.Text + ";";
@@ -435,30 +465,45 @@ namespace AdminPanel
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Client Successfully Edited!");
                     Con.Close();
-                    int deposit = Convert.ToInt32(Deposit.Text);
-                    int bank = Convert.ToInt32(txtBankDeposit.Text);
-                    int totbank = 0;
-                    if (radioButton1.Checked == true || radioButton3.Checked == true)
-                    {
-                        totbank = bank + deposit;
-                    }
-                    else if(radioButton2.Checked == true)
-                    {
-                        //YOU MUST MAKE AN ERROR COMAND HERE TO NOT ALLOW BANK TO GO MINUS!
-                        totbank = bank - deposit;
-                    }
-                    Con.Open();
-                     myquery = "UPDATE total_tbl set Amount='" + totbank + "'";
-                    SqlCommand abc = new SqlCommand(myquery, Con);
-                    abc.ExecuteNonQuery();
-                    MessageBox.Show("Bank Successfully Edited!");
-                    Con.Close();
-                    clean();
                     populate();
                     Transactions();
+                    //clean();
+
+                    //===============KETU FILLON DEPOSITIMI NE BANKE=======================
+                    int deposit = Convert.ToInt32(Deposit.Text);
+                    int bank = Convert.ToInt32(txtBankDeposit.Text);
+                    int totbank;
+
+                    if (radioButton1.Checked == true || radioButton3.Checked == true)
+                    {
+                        
+                        totbank = bank + deposit;
+                        Con.Open();
+                        myquery = "UPDATE total_tbl set Amount='" + totbank + "'";
+                        SqlCommand abc = new SqlCommand(myquery, Con);
+                        abc.ExecuteNonQuery();
+                        MessageBox.Show("Bank Successfully Edited!");
+                        Con.Close();
+                        populate();
+                        Transactions();
+                        clean();
+                    }
+                    else
+                    {
+                        bankerror();
+                    }
+                 //   
+                    
+                }
+
                 }
             }
-        }
+
+           
+
+            
+        
+           
 
 
 
