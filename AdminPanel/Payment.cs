@@ -476,7 +476,7 @@ namespace AdminPanel
 
                     if (radioButton1.Checked == true || radioButton3.Checked == true)
                     {
-                        
+
                         totbank = bank + deposit;
                         Con.Open();
                         myquery = "UPDATE total_tbl set Amount='" + totbank + "'";
@@ -490,7 +490,35 @@ namespace AdminPanel
                     }
                     else
                     {
-                        bankerror();
+                        if(radioButton2.Checked == true)
+                        {
+                            float a = float.Parse(Deposit.Text);
+                            float d = float.Parse(comboBox3.SelectedValue.ToString());
+                            float n = a/d;
+                            int z = (int)Math.Round(n);
+                            int b = Convert.ToInt32(Amount.Text);
+                            if(z > b)
+                            {
+                                MessageBox.Show("Your ammount isnt enough to make this transaction!");
+                                clean();
+                            }
+                            else
+                            {
+                                if(z <= b)
+                                {
+                                    totbank = bank - deposit;
+                                    Con.Open();
+                                    myquery = "UPDATE total_tbl set Amount='" + totbank + "'";
+                                    SqlCommand abc = new SqlCommand(myquery, Con);
+                                    abc.ExecuteNonQuery();
+                                    MessageBox.Show("Transaction Successfully withdrawn!");
+                                    Con.Close();
+                                    populate();
+                                    Transactions();
+                                    clean();
+                                }
+                            }
+                        }
                     }
                  //   
                     

@@ -143,22 +143,26 @@ namespace AdminPanel
             {
                 case 1:
                     ans = num1 - float.Parse(textBox1.Text);
-                    textBox1.Text = ans.ToString();
+                    int z = (int)Math.Round(ans);
+                    textBox1.Text = z.ToString();
                     break;
 
                 case 2:
                     ans = num1 + float.Parse(textBox1.Text);
-                    textBox1.Text = ans.ToString();
+                     z = (int)Math.Round(ans);
+                    textBox1.Text = z.ToString();
                     break;
 
                 case 3:
                     ans = num1 * float.Parse(textBox1.Text);
-                    textBox1.Text = ans.ToString();
+                     z = (int)Math.Round(ans);
+                    textBox1.Text = z.ToString();
                     break;
 
                 case 4:
                     ans = num1 / float.Parse(textBox1.Text);
-                    textBox1.Text = ans.ToString();
+                     z = (int)Math.Round(ans);
+                    textBox1.Text = z.ToString();
                     break;
             }
         }
