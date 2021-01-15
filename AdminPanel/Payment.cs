@@ -474,7 +474,7 @@ namespace AdminPanel
                     int bank = Convert.ToInt32(txtBankDeposit.Text);
                     int totbank;
 
-                    if (radioButton1.Checked == true || radioButton3.Checked == true)
+                    if (radioButton1.Checked == true)
                     {
 
                         totbank = bank + deposit;
@@ -517,6 +517,22 @@ namespace AdminPanel
                                     Transactions();
                                     clean();
                                 }
+                            }
+                        }
+                        else
+                        {
+                            if (radioButton3.Checked == true)
+                            {
+                                totbank = bank + deposit;
+                                Con.Open();
+                                myquery = "UPDATE total_tbl set Amount='" + totbank + "'";
+                                SqlCommand abc = new SqlCommand(myquery, Con);
+                                abc.ExecuteNonQuery();
+                                MessageBox.Show("Bank Successfully Edited!");
+                                Con.Close();
+                                populate();
+                                Transactions();
+                                clean();
                             }
                         }
                     }
